@@ -1,0 +1,29 @@
+@use "../utilities/mixin" as mixin;
+@use "../utilities/variables" as variables;
+
+.bell-icon {
+  position: relative;
+
+  .bell {
+    margin-left: 2.5rem;
+    color: variables.$white;
+    stroke-width: 1px;
+  }
+
+  .dot {
+    background-color: variables.$icon-color;
+    height: 3px;
+    width: 3px;
+    position: absolute;
+    top: -4px;
+    left: 59px;
+    border-radius: 25px;
+  }
+}
+
+.student-icon {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  padding-right: 6px;
+}

@@ -1,0 +1,22 @@
+@use "../utilities/mixin" as mixin;
+@use "../utilities/variables" as variables;
+
+header {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  color: variables.$white;
+  @include mixin.font-size(0.6);
+  background-color: variables.$primary-color;
+  padding: 14px;
+  align-items: center;
+}
+
+nav {
+  background-color: variables.$secondary-color;
+
+  padding: 10px;
+
+  * {
+    padding-left: 0.5rem;
+  }
+}

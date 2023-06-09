@@ -1,0 +1,40 @@
+@use "../utilities/variables" as variables;
+@use "../utilities/mixin" as mixin;
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+}
+header {
+  sup {
+    @include mixin.font-size(0.5);
+  }
+  h1 {
+    font-weight: 100;
+  }
+
+  span {
+    border-right: solid 1px variables.$grey;
+    height: 28px;
+    margin-right: 0.6rem;
+  }
+}
+a {
+  text-decoration: none;
+}
+.dashboard {
+  text-align: center;
+  display: inline-flex;
+  gap: 5px;
+  width: 100%;
+  padding-left: 15px;
+
+  .tab {
+    border: 1px solid variables.$grey;
+    border-top: none;
+    padding-bottom: 4rem;
+  }
+}

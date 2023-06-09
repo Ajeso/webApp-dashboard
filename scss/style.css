@@ -27,11 +27,12 @@ a {
   display: inline-flex;
   gap: 5px;
   width: 100%;
+  padding-left: 15px;
 }
 .dashboard .tab {
   border: 1px solid rgb(186, 182, 182);
   border-top: none;
-  padding: 20px;
+  padding-bottom: 4rem;
 }
 
 header {
@@ -76,6 +77,4 @@ nav * {
   height: auto;
   border-radius: 50%;
   padding-right: 6px;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
