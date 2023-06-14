@@ -1,4 +1,16 @@
+@use "../utilities/variables" as variables;
+
 @mixin font-size($sizeValue: 1.6) {
   font-size: ($sizeValue * 10) + px;
   font-size: $sizeValue + rem;
+}
+
+@mixin mq($breakpoint) {
+  @each $breakpoints, $size in variables.$media {
+    @if $breakpoint==$breakpoints {
+      @media screen and (min-width: $size) {
+        @content;
+      }
+    }
+  }
 }

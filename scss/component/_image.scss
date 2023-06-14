@@ -20,6 +20,15 @@
     border-radius: 25px;
   }
 }
+.social-card {
+  svg {
+    width: 84px;
+    background-color: variables.$primary-color;
+    fill: variables.$white;
+    border-radius: 35px;
+    stroke-width: 20px;
+  }
+}
 
 .student-icon {
   max-width: 100%;

@@ -27,11 +27,22 @@ a {
   display: inline-flex;
   gap: 5px;
   width: 100%;
+  padding-left: 15px;
 }
 .dashboard .tab {
   border: 1px solid rgb(186, 182, 182);
   border-top: none;
-  padding: 20px;
+  padding-bottom: 4rem;
+  width: 100%;
+}
+
+.alert-box {
+  background-color: rgb(53, 123, 236);
+  margin-left: 2rem;
+  margin-top: 1rem;
+  display: inline-flex;
+  gap: 32px;
+  padding: 4px;
 }
 
 header {

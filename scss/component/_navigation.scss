@@ -9,6 +9,8 @@ header {
   background-color: variables.$primary-color;
   padding: 14px;
   align-items: center;
+  @include mixin.mq(tablet) {
+  }
 }
 
 nav {
@@ -18,5 +20,8 @@ nav {
 
   * {
     padding-left: 0.5rem;
+    @include mixin.mq(tablet) {
+      margin-top: 2rem;
+    }
   }
 }

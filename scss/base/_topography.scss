@@ -1,18 +1,20 @@
 @use "../utilities/variables" as variables;
 @use "../utilities/mixin" as mixin;
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;400;700&display=swap");
 
 * {
   box-sizing: border-box;
   font-family: "Noto Sans", sans-serif;
   margin: 0;
 }
+
 header {
   sup {
     @include mixin.font-size(0.5);
   }
-  h1 {
+  h1,
+  h2 {
     font-weight: 100;
   }
 
@@ -22,19 +24,73 @@ header {
     margin-right: 0.6rem;
   }
 }
-a {
-  text-decoration: none;
-}
+
 .dashboard {
   text-align: center;
   display: inline-flex;
   gap: 5px;
   width: 100%;
   padding-left: 15px;
+  @include mixin.mq(tablet) {
+    margin-bottom: 1rem;
+  }
 
   .tab {
     border: 1px solid variables.$grey;
     border-top: none;
     padding-bottom: 4rem;
+    width: 55%;
+  }
+}
+.alert-box {
+  background-color: variables.$blue;
+  margin-left: 9px;
+  margin-top: 1rem;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 4px;
+  width: 98%;
+  border-radius: 5px;
+  color: variables.$white;
+}
+.pie-widget {
+  width: 60%;
+  text-align: center;
+}
+
+.members {
+  font-weight: 100;
+  img {
+    border-radius: 50%;
+  }
+
+  h2 {
+    margin-top: 2rem;
+  }
+}
+.card,
+.activity-card {
+  text-align: center;
+  padding: 1.5rem 0 1.5rem 0;
+  border-bottom: 1px solid variables.$grey;
+  border-bottom-width: 80%;
+  margin: 0 1rem;
+}
+
+.activity {
+  a {
+    color: #000;
+    font-weight: 800;
+  }
+}
+
+main {
+  @include mixin.mq(tablet) {
+    .daily,
+    .mobile {
+      margin-top: 10px;
+      border: 1px solid variables.$grey;
+      padding: 5px;
+    }
   }
 }
