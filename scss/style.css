@@ -37,6 +37,11 @@ header span {
   padding-bottom: 4rem;
   width: 55%;
 }
+@media screen and (min-width: 768px) {
+  .dashboard .tab {
+    width: 100%;
+  }
+}
 
 .alert-box {
   background-color: rgb(53, 123, 236);
@@ -57,6 +62,7 @@ header span {
 
 .members {
   font-weight: 100;
+  padding: 12px;
 }
 .members img {
   border-radius: 50%;
@@ -88,7 +94,12 @@ header span {
   }
 }
 
-form button {
+.settings,
+.message {
+  /* Transition*/
+}
+.settings button,
+.message button {
   background-color: rgb(127, 102, 195);
   border: none;
   color: #fff;
@@ -98,55 +109,111 @@ form button {
   width: 100%;
   margin-right: 1rem;
 }
-form .settings .cancel {
+.settings .cancel,
+.message .cancel {
   background-color: rgb(186, 182, 182);
 }
-
-.switch {
+.settings .toggle,
+.message .toggle {
   position: relative;
-  width: 70px;
-  height: 66px;
-}
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.switch .slider {
-  position: absolute;
+  display: block;
+  width: 120px;
+  height: 40px;
+  padding: 3px;
+  margin: auto;
+  bottom: 13px;
+  border-radius: 50px;
   cursor: pointer;
+}
+.settings .toggle-input,
+.message .toggle-input {
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  border-radius: 34px;
+  opacity: 0;
 }
-.switch .slider:before {
+.settings .toggle-label,
+.message .toggle-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 12px;
+  background-color: rgb(127, 102, 195);
+  border-radius: inherit;
+  border: 2px solid rgb(186, 182, 182);
+}
+.settings .toggle-label:before,
+.settings .toggle-label:after,
+.message .toggle-label:before,
+.message .toggle-label:after {
   position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
+  top: 50%;
+  color: black;
+  margin-top: -0.5em;
+  line-height: 1;
+}
+.settings .toggle-label:before,
+.message .toggle-label:before {
+  content: attr(data-off);
+  right: 11px;
+  color: #fff;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.settings .toggle-label:after,
+.message .toggle-label:after {
+  content: attr(data-on);
   left: 11px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
+  color: #fff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+}
+.settings .toggle-input:checked ~ .toggle-label,
+.message .toggle-input:checked ~ .toggle-label {
+  background-color: rgb(127, 102, 195);
+}
+.settings .toggle-input:checked ~ .toggle-label:before,
+.message .toggle-input:checked ~ .toggle-label:before {
+  opacity: 0;
+}
+.settings .toggle-input:checked ~ .toggle-label:after,
+.message .toggle-input:checked ~ .toggle-label:after {
+  opacity: 1;
+}
+.settings .toggle-handle,
+.message .toggle-handle {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background: #fff;
   border-radius: 50%;
+  border: 2px solid rgb(186, 182, 182);
+}
+.settings .toggle-handle:before,
+.message .toggle-handle:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 16px;
+  height: 16px;
+}
+.settings .toggle-input:checked ~ .toggle-handle,
+.message .toggle-input:checked ~ .toggle-handle {
+  left: 58px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.settings .toggle-label,
+.settings .toggle-handle,
+.message .toggle-label,
+.message .toggle-handle {
+  transition: All 0.3s ease;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
 }
 
-input:checked + .slider {
-  background-color: #2196f3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
 .grid-container {
   display: grid;
   grid-template-columns: 100%;
@@ -222,6 +289,7 @@ a {
   gap: 1rem;
   width: 100%;
   margin-top: 3rem;
+  padding: 12px;
 }
 .social .social-card {
   display: flex;
@@ -250,19 +318,35 @@ a {
 .message form * {
   border-radius: 8px;
   padding: 14px;
+  width: 100%;
+  margin: 1rem 0;
 }
 
 .settings {
+  font-size: 14px;
+  font-size: 1.4rem;
   border: none;
+  padding: 12px;
+}
+.settings * {
+  margin: 1rem 0;
+  width: 100%;
 }
 .settings div {
   display: flex;
-  justify-content: space-around;
+  gap: 18px;
 }
 .settings select {
-  width: 100%;
-  padding: 11px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding: 15px 11px;
+  background-image: url(/svgs/sort.svg);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: 30px;
   border-radius: 6px;
+  color: rgb(186, 182, 182);
 }
 
 header {
@@ -307,11 +391,11 @@ nav * {
 }
 
 .social-card svg {
-  width: 84px;
+  width: 75px;
+  height: 75px;
   background-color: rgb(127, 102, 195);
   fill: #fff;
-  border-radius: 35px;
-  stroke-width: 20px;
+  border-radius: 50%;
 }
 
 .student-icon {

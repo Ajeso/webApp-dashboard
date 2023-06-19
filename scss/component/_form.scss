@@ -12,21 +12,37 @@
     * {
       border-radius: 8px;
       padding: 14px;
+      width: 100%;
+      margin: 1rem 0;
     }
   }
 }
 
 .settings {
+  @include mixin.font-size(1.4);
   border: none;
+  padding: 12px;
+  * {
+    margin: 1rem 0;
+    width: 100%;
+  }
 
   div {
     display: flex;
-    justify-content: space-around;
+    gap: 18px;
   }
 
   select {
-    width: 100%;
-    padding: 11px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding: 15px 11px;
+    background-image: url(/svgs/sort.svg);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    // background-position: calc(100% right);
+    background-size: 30px;
     border-radius: 6px;
+    color: variables.$grey;
   }
 }

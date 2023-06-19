@@ -1,7 +1,8 @@
 @use "../utilities/mixin" as mixin;
 @use "../utilities/variables" as variables;
 
-form {
+.settings,
+.message {
   button {
     background-color: variables.$primary-color;
     border: none;
@@ -13,59 +14,94 @@ form {
     margin-right: 1rem;
   }
 
-  .settings {
-    .cancel {
-      background-color: variables.$grey;
-    }
+  .cancel {
+    background-color: variables.$grey;
   }
-}
-.switch {
-  position: relative;
-  width: 70px;
-  height: 66px;
-
-  input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .slider {
-    position: absolute;
+  .toggle {
+    position: relative;
+    display: block;
+    width: 120px;
+    height: 40px;
+    padding: 3px;
+    margin: auto;
+    bottom: 13px;
+    border-radius: 50px;
     cursor: pointer;
+  }
+  .toggle-input {
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    border-radius: 34px;
+    opacity: 0;
   }
-  .slider:before {
+  .toggle-label {
+    position: relative;
+    display: block;
+    height: inherit;
+    font-size: 12px;
+    background-color: variables.$primary-color;
+    border-radius: inherit;
+    border: 2px solid variables.$grey;
+  }
+  .toggle-label:before,
+  .toggle-label:after {
     position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
+    top: 50%;
+    color: black;
+    margin-top: -0.5em;
+    line-height: 1;
+  }
+  .toggle-label:before {
+    content: attr(data-off);
+    right: 11px;
+    color: #fff;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+  }
+  .toggle-label:after {
+    content: attr(data-on);
     left: 11px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+    color: #fff;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+  }
+  .toggle-input:checked ~ .toggle-label {
+    background-color: variables.$primary-color;
+  }
+  .toggle-input:checked ~ .toggle-label:before {
+    opacity: 0;
+  }
+  .toggle-input:checked ~ .toggle-label:after {
+    opacity: 1;
+  }
+  .toggle-handle {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background: variables.$white;
     border-radius: 50%;
+    border: 2px solid variables.$grey;
+  }
+  .toggle-handle:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -6px 0 0 -6px;
+    width: 16px;
+    height: 16px;
+  }
+  .toggle-input:checked ~ .toggle-handle {
+    left: 58px;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Transition*/
+  .toggle-label,
+  .toggle-handle {
+    transition: All 0.3s ease;
+    -webkit-transition: All 0.3s ease;
+    -moz-transition: All 0.3s ease;
+    -o-transition: All 0.3s ease;
   }
 }
-
-input:checked + .slider {
-  background-color: #2196f3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */

@@ -24,6 +24,11 @@ function createChart(
     y: {
       beginAtZero: true,
     },
+  },
+  plugins = {
+    legend: {
+      display: false,
+    },
   }
 ) {
   const ctx = document.getElementById(elementID).getContext("2d");
@@ -32,11 +37,7 @@ function createChart(
     data,
     options: {
       scales,
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
+      plugins,
     },
   });
 }
@@ -94,4 +95,10 @@ const pieData = {
 
 const lineChart = createChart("line-chart", "line", lineData);
 const barChart = createChart("bar-chart", "bar", barData);
-const pieChart = createChart("pie-chart", "doughnut", pieData, {});
+const pieChart = createChart(
+  "pie-chart",
+  "doughnut",
+  pieData,
+  {},
+  (display = true)
+);

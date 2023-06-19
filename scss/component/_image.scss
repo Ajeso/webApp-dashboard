@@ -22,11 +22,11 @@
 }
 .social-card {
   svg {
-    width: 84px;
+    width: 75px;
+    height: 75px;
     background-color: variables.$primary-color;
     fill: variables.$white;
-    border-radius: 35px;
-    stroke-width: 20px;
+    border-radius: 50%;
   }
 }
 
