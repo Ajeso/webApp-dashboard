@@ -8,6 +8,7 @@
     margin-left: 2.5rem;
     color: variables.$white;
     stroke-width: 1px;
+    cursor: pointer;
   }
 
   .dot {
@@ -18,6 +19,12 @@
     top: -4px;
     left: 59px;
     border-radius: 25px;
+  }
+  #notification {
+    display: none;
+    position: absolute;
+    width: 200px;
+    padding: 20px;
   }
 }
 .social-card {

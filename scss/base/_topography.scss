@@ -88,6 +88,12 @@ header {
   }
 }
 
+.li-background {
+  background-color: variables.$icon-color;
+  padding: 14px 20px;
+  border-radius: 50%;
+}
+
 main {
   @include mixin.mq(tablet) {
     .daily,

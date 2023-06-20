@@ -1,4 +1,8 @@
 const alert = document.getElementById("alert");
+const trafficUl = document.getElementById("traffic-list");
+const bell = document.querySelector(".bell");
+const notifications = document.getElementById("notications");
+const settingBtn = document.getElementById("setting-btn");
 
 function alertmessage() {
   alert.innerHTML = `
@@ -16,7 +20,16 @@ alert.addEventListener("click", (e) => {
   }
 });
 
+// Bell Notifications display
+bell.addEventListener("click", () => {
+  notification.style.display =
+    notification.style.display === "none" ? "block" : "none";
+});
+
+// createChart function
+
 function createChart(
+  //function params
   elementID,
   chartType,
   data,
@@ -42,6 +55,7 @@ function createChart(
   });
 }
 
+// data for the line chart
 const lineData = {
   labels: [
     "16-22",
@@ -58,7 +72,7 @@ const lineData = {
   ],
   datasets: [
     {
-      data: [700, 1200, 1000, 2000, 1500, 1700, 1200, 1800, 2000, 1500, 2500],
+      data: generateRandomData(2500),
       borderWidth: 1,
       backgroundColor: ["#cabaf7"],
       fill: true,
@@ -66,6 +80,8 @@ const lineData = {
     },
   ],
 };
+
+// bar chart data
 const barData = {
   labels: ["S", "M", "T", "W", "T", "F", "S"],
   datasets: [
@@ -78,6 +94,7 @@ const barData = {
   ],
 };
 
+// pie chart data
 const pieData = {
   labels: ["DeskTop", "Tablet", "Phones"],
   datasets: [
@@ -93,6 +110,7 @@ const pieData = {
   ],
 };
 
+// creating the charts
 const lineChart = createChart("line-chart", "line", lineData);
 const barChart = createChart("bar-chart", "bar", barData);
 const pieChart = createChart(
@@ -102,3 +120,39 @@ const pieChart = createChart(
   {},
   (display = true)
 );
+
+// generateRandomData function for the line chart eventlistener
+function generateRandomData(numDataPoints) {
+  const data = [];
+
+  for (let i = 500; i < numDataPoints; i++) {
+    const y = Math.floor(Math.random() * 2500);
+    data.push(y);
+  }
+
+  return data;
+}
+
+// updateChart Function for the line chart
+function updateChart() {
+  const newData = generateRandomData(2500);
+  lineChart.data.datasets[0].data = newData;
+  lineChart.update();
+}
+
+// the eventlistener on the traffic list items when clicked
+trafficUl.addEventListener("click", (e) => {
+  if (e.target && e.target.tagName === "LI") {
+    e.target.classList.toggle("li-background");
+    updateChart();
+  }
+});
+
+// save settings when save button is clicked
+settingBtn.addEventListener("click", (e) => {
+  if (e.target === document.getElementById("save-btn")) {
+    localStorage.setItem("setting", true);
+  } else if (e.target === document.getElementById("cancel")) {
+    localStorage.clear();
+  }
+});

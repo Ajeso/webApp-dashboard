@@ -85,6 +85,12 @@ header span {
   font-weight: 800;
 }
 
+.li-background {
+  background-color: rgb(83, 198, 118);
+  padding: 14px 20px;
+  border-radius: 50%;
+}
+
 @media screen and (min-width: 768px) {
   main .daily,
   main .mobile {
@@ -379,6 +385,7 @@ nav * {
   margin-left: 2.5rem;
   color: #fff;
   stroke-width: 1px;
+  cursor: pointer;
 }
 .bell-icon .dot {
   background-color: rgb(83, 198, 118);
@@ -388,6 +395,12 @@ nav * {
   top: -4px;
   left: 59px;
   border-radius: 25px;
+}
+.bell-icon #notification {
+  display: none;
+  position: absolute;
+  width: 200px;
+  padding: 20px;
 }
 
 .social-card svg {
