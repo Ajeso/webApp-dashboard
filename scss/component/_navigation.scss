@@ -2,14 +2,32 @@
 @use "../utilities/variables" as variables;
 
 header {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  justify-content: space-between;
   color: variables.$white;
   @include mixin.font-size(0.6);
   background-color: variables.$primary-color;
   padding: 14px;
   align-items: center;
-  @include mixin.mq(tablet) {
+
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    @include mixin.mq(tablet) {
+      width: 100%;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+  }
+  h2 {
+    font-weight: 100;
+    @include mixin.font-size(0.8);
+    @include mixin.mq(tablet) {
+      @include mixin.font-size(1.2);
+    }
   }
 }
 

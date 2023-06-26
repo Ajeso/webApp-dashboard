@@ -13,10 +13,20 @@ header h1,
 header h2 {
   font-weight: 100;
 }
-header span {
+@media screen and (min-width: 768px) {
+  header h1 {
+    font-size: 20px;
+    font-size: 2rem;
+  }
+}
+header .vertical {
   border-right: solid 1px rgb(186, 182, 182);
   height: 28px;
-  margin-right: 0.6rem;
+}
+@media screen and (min-width: 768px) {
+  header .vertical {
+    height: 60px;
+  }
 }
 
 .dashboard {
@@ -70,6 +80,41 @@ header span {
 .members h2 {
   margin-top: 2rem;
 }
+@media screen and (min-width: 1024px) {
+  .members .new-members,
+  .members .message {
+    border-right: 2px solid rgb(186, 182, 182);
+    margin: 0;
+  }
+}
+
+.traffic,
+.social,
+.message {
+  padding: 15px;
+  border-bottom: 1px solid rgb(186, 182, 182);
+}
+@media screen and (min-width: 768px) {
+  .traffic,
+  .social,
+  .message {
+    border-bottom: none;
+  }
+}
+
+.daily,
+.mobile {
+  padding: 15px;
+  border-bottom: 1px solid rgb(186, 182, 182);
+}
+@media screen and (min-width: 768px) {
+  .daily,
+  .mobile {
+    margin-top: 10px;
+    border: 1px solid rgb(186, 182, 182);
+    padding: 5px;
+  }
+}
 
 .card,
 .activity-card {
@@ -79,25 +124,30 @@ header span {
   border-bottom-width: 80%;
   margin: 0 1rem;
 }
+@media screen and (min-width: 768px) {
+  .card,
+  .activity-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+  }
+  .card span,
+  .activity-card span {
+    flex-grow: 1;
+    text-align: center;
+  }
+}
 
 .activity a {
   color: #000;
   font-weight: 800;
 }
 
-.li-background {
+.liActive {
   background-color: rgb(83, 198, 118);
-  padding: 14px 20px;
-  border-radius: 50%;
-}
-
-@media screen and (min-width: 768px) {
-  main .daily,
-  main .mobile {
-    margin-top: 10px;
-    border: 1px solid rgb(186, 182, 182);
-    padding: 5px;
-  }
+  padding: 7px;
+  border-radius: 30%;
 }
 
 .settings,
@@ -243,9 +293,7 @@ main {
   }
   main .traffic,
   main .social,
-  main .message,
-  main .settings,
-  main .activity,
+  main .form-section,
   main .members,
   main .dashboard,
   main .alert {
@@ -256,6 +304,15 @@ main {
   }
   main .mobile {
     grid-column: 2/span 1;
+  }
+}
+@media screen and (min-width: 1024px) {
+  main .members,
+  main .form-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 2px solid rgb(186, 182, 182);
+    margin: 0;
   }
 }
 
@@ -291,11 +348,19 @@ a {
 }
 
 .social {
-  display: inline-grid;
-  gap: 1rem;
   width: 100%;
   margin-top: 3rem;
   padding: 12px;
+}
+.social .card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .social .card-container {
+    flex-direction: row;
+  }
 }
 .social .social-card {
   display: flex;
@@ -314,35 +379,39 @@ a {
   color: rgb(186, 182, 182);
 }
 
-.message {
+.form-section .message-form * {
+  border-radius: 8px;
+  padding: 14px;
+  width: 100%;
+  margin: 1rem 0;
+}
+.form-section .message {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 12px;
 }
-.message form * {
-  border-radius: 8px;
-  padding: 14px;
-  width: 100%;
-  margin: 1rem 0;
+@media screen and (min-width: 1024px) {
+  .form-section .message {
+    border-right: 1px solid rgb(186, 182, 182);
+  }
 }
-
-.settings {
+.form-section .settings {
   font-size: 14px;
   font-size: 1.4rem;
   border: none;
   padding: 12px;
 }
-.settings * {
+.form-section .settings * {
   margin: 1rem 0;
-  width: 100%;
 }
-.settings div {
+.form-section .settings div {
   display: flex;
   gap: 18px;
 }
-.settings select {
+.form-section .settings select {
+  width: 100%;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -356,8 +425,8 @@ a {
 }
 
 header {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  justify-content: space-between;
   color: #fff;
   font-size: 6px;
   font-size: 0.6rem;
@@ -365,6 +434,31 @@ header {
   padding: 14px;
   align-items: center;
 }
+header .header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+@media screen and (min-width: 768px) {
+  header .header-container {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+}
+header h2 {
+  font-weight: 100;
+  font-size: 8px;
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 768px) {
+  header h2 {
+    font-size: 12px;
+    font-size: 1.2rem;
+  }
+}
+
 nav {
   background-color: rgb(78, 64, 119);
   padding: 10px;
@@ -380,12 +474,18 @@ nav * {
 
 .bell-icon {
   position: relative;
+  margin-right: 1.6rem;
 }
 .bell-icon .bell {
   margin-left: 2.5rem;
   color: #fff;
   stroke-width: 1px;
   cursor: pointer;
+  width: 52%;
+  transition: 0.1s ease-in-out;
+}
+.bell-icon .bell:hover {
+  background-color: rgb(83, 198, 118);
 }
 .bell-icon .dot {
   background-color: rgb(83, 198, 118);
@@ -395,6 +495,14 @@ nav * {
   top: -4px;
   left: 59px;
   border-radius: 25px;
+}
+@media screen and (min-width: 768px) {
+  .bell-icon .dot {
+    height: 6px;
+    width: 6px;
+    top: -10px;
+    left: 67px;
+  }
 }
 .bell-icon #notification {
   display: none;
@@ -415,5 +523,10 @@ nav * {
   max-width: 100%;
   height: auto;
   border-radius: 50%;
-  padding-right: 6px;
+  width: 20%;
+}
+@media screen and (min-width: 768px) {
+  .student-icon {
+    width: 10%;
+  }
 }

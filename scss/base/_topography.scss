@@ -17,11 +17,18 @@ header {
   h2 {
     font-weight: 100;
   }
+  @include mixin.mq(tablet) {
+    h1 {
+      @include mixin.font-size(2);
+    }
+  }
 
-  span {
+  .vertical {
     border-right: solid 1px variables.$grey;
     height: 28px;
-    margin-right: 0.6rem;
+    @include mixin.mq(tablet) {
+      height: 60px;
+    }
   }
 }
 
@@ -71,6 +78,32 @@ header {
   h2 {
     margin-top: 2rem;
   }
+  @include mixin.mq(laptop) {
+    .new-members,
+    .message {
+      border-right: 2px solid variables.$grey;
+      margin: 0;
+    }
+  }
+}
+.traffic,
+.social,
+.message {
+  padding: 15px;
+  border-bottom: 1px solid variables.$grey;
+  @include mixin.mq(tablet) {
+    border-bottom: none;
+  }
+}
+.daily,
+.mobile {
+  padding: 15px;
+  border-bottom: 1px solid variables.$grey;
+  @include mixin.mq(tablet) {
+    margin-top: 10px;
+    border: 1px solid variables.$grey;
+    padding: 5px;
+  }
 }
 .card,
 .activity-card {
@@ -79,6 +112,17 @@ header {
   border-bottom: 1px solid variables.$grey;
   border-bottom-width: 80%;
   margin: 0 1rem;
+  @include mixin.mq(tablet) {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+
+    span {
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
 }
 
 .activity {
@@ -88,19 +132,8 @@ header {
   }
 }
 
-.li-background {
+.liActive {
   background-color: variables.$icon-color;
-  padding: 14px 20px;
-  border-radius: 50%;
-}
-
-main {
-  @include mixin.mq(tablet) {
-    .daily,
-    .mobile {
-      margin-top: 10px;
-      border: 1px solid variables.$grey;
-      padding: 5px;
-    }
-  }
+  padding: 7px;
+  border-radius: 30%;
 }

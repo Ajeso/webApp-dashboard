@@ -3,12 +3,18 @@
 
 .bell-icon {
   position: relative;
+  margin-right: 1.6rem;
 
   .bell {
     margin-left: 2.5rem;
     color: variables.$white;
     stroke-width: 1px;
     cursor: pointer;
+    width: 52%;
+    transition: 0.1s ease-in-out;
+  }
+  .bell:hover {
+    background-color: variables.$icon-color;
   }
 
   .dot {
@@ -19,6 +25,12 @@
     top: -4px;
     left: 59px;
     border-radius: 25px;
+    @include mixin.mq(tablet) {
+      height: 6px;
+      width: 6px;
+      top: -10px;
+      left: 67px;
+    }
   }
   #notification {
     display: none;
@@ -41,5 +53,8 @@
   max-width: 100%;
   height: auto;
   border-radius: 50%;
-  padding-right: 6px;
+  width: 20%;
+  @include mixin.mq(tablet) {
+    width: 10%;
+  }
 }

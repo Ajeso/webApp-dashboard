@@ -1,11 +1,15 @@
-const alert = document.getElementById("alert");
+"use strict";
+const alertElement = document.getElementById("alert");
 const trafficUl = document.getElementById("traffic-list");
 const bell = document.querySelector(".bell");
 const notifications = document.getElementById("notications");
 const settingBtn = document.getElementById("setting-btn");
+const send = document.getElementById("send");
+const search = document.getElementById("search");
+const message = document.getElementById("message");
 
 function alertmessage() {
-  alert.innerHTML = `
+  alertElement.innerHTML = `
   <div class="alert-box" id="alert">
             <p><strong>Alert:</strong> You have unread messages! </p>
             <p class="close">x</p>
@@ -13,10 +17,10 @@ function alertmessage() {
   `;
 }
 
-alert.addEventListener("click", (e) => {
+alertElement.addEventListener("click", (e) => {
   const element = e.target;
   if (element.classList.contains("close")) {
-    alert.style.display = "none";
+    alertElement.style.display = "none";
   }
 });
 
@@ -100,6 +104,7 @@ const pieData = {
   datasets: [
     {
       data: [250, 80, 80],
+      borderWidth: 1,
       backgroundColor: [
         "rgb(127, 102, 195)",
         "rgb(34, 171, 112)",
@@ -118,7 +123,12 @@ const pieChart = createChart(
   "doughnut",
   pieData,
   {},
-  (display = true)
+  {
+    legend: {
+      position: "right",
+      display: true,
+    },
+  }
 );
 
 // generateRandomData function for the line chart eventlistener
@@ -141,10 +151,15 @@ function updateChart() {
 }
 
 // the eventlistener on the traffic list items when clicked
+
 trafficUl.addEventListener("click", (e) => {
   if (e.target && e.target.tagName === "LI") {
-    e.target.classList.toggle("li-background");
     updateChart();
+    const activeItem = document.querySelector(".liActive");
+    if (activeItem) {
+      activeItem.classList.remove("liActive");
+    }
+    e.target.classList.add("liActive");
   }
 });
 
@@ -154,5 +169,18 @@ settingBtn.addEventListener("click", (e) => {
     localStorage.setItem("setting", true);
   } else if (e.target === document.getElementById("cancel")) {
     localStorage.clear();
+  }
+});
+// form Eventlistener on the send button
+
+send.addEventListener("click", () => {
+  if (search.value === "" && message.value === "") {
+    alert("Please fill out user and message fields before sending");
+  } else if (search.value === "") {
+    alert("Please fill out user field before sending");
+  } else if (message.value === "") {
+    alert("Please fill out message field before sending");
+  } else {
+    alert(`Message successfully sent to: ${search.value}`);
   }
 });

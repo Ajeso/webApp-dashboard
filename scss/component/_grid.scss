@@ -24,9 +24,7 @@ main {
     grid-template-columns: 50%;
     .traffic,
     .social,
-    .message,
-    .settings,
-    .activity,
+    .form-section,
     .members,
     .dashboard,
     .alert {
@@ -37,6 +35,15 @@ main {
     }
     .mobile {
       grid-column: 2 / span 1;
+    }
+  }
+  @include mixin.mq(laptop) {
+    .members,
+    .form-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 2px solid variables.$grey;
+      margin: 0;
     }
   }
 }
@@ -69,11 +76,17 @@ a {
 }
 
 .social {
-  display: inline-grid;
-  gap: 1rem;
   width: 100%;
   margin-top: 3rem;
   padding: 12px;
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include mixin.mq(tablet) {
+      flex-direction: row;
+    }
+  }
 
   .social-card {
     display: flex;
