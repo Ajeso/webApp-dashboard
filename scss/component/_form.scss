@@ -19,6 +19,7 @@
     padding: 12px;
     @include mixin.mq(laptop) {
       border-right: 1px solid variables.$grey;
+      margin: 0;
     }
   }
 
@@ -26,6 +27,8 @@
     @include mixin.font-size(1.4);
     border: none;
     padding: 12px;
+    display: flex;
+    flex-direction: column;
 
     * {
       margin: 1rem 0;
@@ -45,7 +48,6 @@
       background-image: url(/svgs/sort.svg);
       background-repeat: no-repeat;
       background-position-x: right;
-      // background-position: calc(100% right);
       background-size: 30px;
       border-radius: 6px;
       color: variables.$grey;

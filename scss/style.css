@@ -80,6 +80,43 @@ header .vertical {
 .members h2 {
   margin-top: 2rem;
 }
+.members .activity-card svg {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .members .activity-card svg {
+    display: block;
+  }
+}
+.members .card:not(:last-child),
+.members .activity-card:not(:last-child) {
+  border-bottom: 1px solid rgb(186, 182, 182);
+}
+.members .card,
+.members .activity-card {
+  text-align: center;
+  padding: 1.5rem 0 1.5rem 0;
+  margin: 0 1rem;
+}
+@media screen and (min-width: 768px) {
+  .members .card,
+  .members .activity-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    text-align: left;
+  }
+  .members .card span,
+  .members .activity-card span {
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+.members .activity a {
+  color: #000;
+  font-weight: 800;
+}
 @media screen and (min-width: 1024px) {
   .members .new-members,
   .members .message {
@@ -88,18 +125,19 @@ header .vertical {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .traffic {
+    border: none;
+  }
+}
+
 .traffic,
 .social,
-.message {
+.message,
+.new-members,
+.activity {
   padding: 15px;
   border-bottom: 1px solid rgb(186, 182, 182);
-}
-@media screen and (min-width: 768px) {
-  .traffic,
-  .social,
-  .message {
-    border-bottom: none;
-  }
 }
 
 .daily,
@@ -114,34 +152,6 @@ header .vertical {
     border: 1px solid rgb(186, 182, 182);
     padding: 5px;
   }
-}
-
-.card,
-.activity-card {
-  text-align: center;
-  padding: 1.5rem 0 1.5rem 0;
-  border-bottom: 1px solid rgb(186, 182, 182);
-  border-bottom-width: 80%;
-  margin: 0 1rem;
-}
-@media screen and (min-width: 768px) {
-  .card,
-  .activity-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-align: left;
-  }
-  .card span,
-  .activity-card span {
-    flex-grow: 1;
-    text-align: center;
-  }
-}
-
-.activity a {
-  color: #000;
-  font-weight: 800;
 }
 
 .liActive {
@@ -311,7 +321,6 @@ main {
   main .form-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border-top: 2px solid rgb(186, 182, 182);
     margin: 0;
   }
 }
@@ -395,6 +404,7 @@ a {
 @media screen and (min-width: 1024px) {
   .form-section .message {
     border-right: 1px solid rgb(186, 182, 182);
+    margin: 0;
   }
 }
 .form-section .settings {
@@ -402,6 +412,8 @@ a {
   font-size: 1.4rem;
   border: none;
   padding: 12px;
+  display: flex;
+  flex-direction: column;
 }
 .form-section .settings * {
   margin: 1rem 0;

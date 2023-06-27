@@ -78,6 +78,44 @@ header {
   h2 {
     margin-top: 2rem;
   }
+  .activity-card {
+    svg {
+      display: none;
+
+      @include mixin.mq(tablet) {
+        display: block;
+      }
+    }
+  }
+  .card:not(:last-child),
+  .activity-card:not(:last-child) {
+    border-bottom: 1px solid variables.$grey;
+  }
+  .card,
+  .activity-card {
+    text-align: center;
+    padding: 1.5rem 0 1.5rem 0;
+    margin: 0 1rem;
+    @include mixin.mq(tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      text-align: left;
+
+      span {
+        flex-grow: 1;
+        text-align: center;
+      }
+    }
+  }
+
+  .activity {
+    a {
+      color: #000;
+      font-weight: 800;
+    }
+  }
   @include mixin.mq(laptop) {
     .new-members,
     .message {
@@ -86,15 +124,20 @@ header {
     }
   }
 }
-.traffic,
-.social,
-.message {
-  padding: 15px;
-  border-bottom: 1px solid variables.$grey;
+.traffic {
   @include mixin.mq(tablet) {
-    border-bottom: none;
+    border: none;
   }
 }
+.traffic,
+.social,
+.message,
+.new-members,
+.activity {
+  padding: 15px;
+  border-bottom: 1px solid variables.$grey;
+}
+
 .daily,
 .mobile {
   padding: 15px;
@@ -103,32 +146,6 @@ header {
     margin-top: 10px;
     border: 1px solid variables.$grey;
     padding: 5px;
-  }
-}
-.card,
-.activity-card {
-  text-align: center;
-  padding: 1.5rem 0 1.5rem 0;
-  border-bottom: 1px solid variables.$grey;
-  border-bottom-width: 80%;
-  margin: 0 1rem;
-  @include mixin.mq(tablet) {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-align: left;
-
-    span {
-      flex-grow: 1;
-      text-align: center;
-    }
-  }
-}
-
-.activity {
-  a {
-    color: #000;
-    font-weight: 800;
   }
 }
 
