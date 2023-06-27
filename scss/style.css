@@ -406,7 +406,7 @@ a {
 }
 @media screen and (min-width: 1024px) {
   .form-section .message {
-    border-right: 1px solid rgb(186, 182, 182);
+    border-right: 2px solid rgb(186, 182, 182);
     margin: 0;
   }
 }
