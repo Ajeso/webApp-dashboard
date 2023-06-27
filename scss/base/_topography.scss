@@ -54,12 +54,12 @@ header {
 }
 .alert-box {
   background-color: variables.$blue;
-  margin-left: 9px;
+
   margin-top: 1rem;
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
   padding: 4px;
-  width: 98%;
+  // display: none;
   border-radius: 5px;
   color: variables.$white;
 }
@@ -124,7 +124,7 @@ header {
   }
 }
 .traffic {
-  padding: 15px;
+  padding: 10px 10px 10px 0;
   border-bottom: 1px solid variables.$grey;
   @include mixin.mq(tablet) {
     border: none;
@@ -135,13 +135,13 @@ header {
 .message,
 .new-members,
 .activity {
-  padding: 0 15px;
+  padding: 10px 10px 10px 0;
   border-bottom: 1px solid variables.$grey;
 }
 
 .daily,
 .mobile {
-  padding: 15px;
+  padding: 10px 10px 10px 0;
   border-bottom: 1px solid variables.$grey;
   @include mixin.mq(tablet) {
     margin-top: 10px;

@@ -63,4 +63,7 @@
   @include mixin.mq(tablet) {
     width: 10%;
   }
+  @include mixin.mq(laptop) {
+    width: 5%;
+  }
 }

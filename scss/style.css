@@ -55,12 +55,10 @@ header .vertical {
 
 .alert-box {
   background-color: rgb(53, 123, 236);
-  margin-left: 9px;
   margin-top: 1rem;
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
   padding: 4px;
-  width: 98%;
   border-radius: 5px;
   color: #fff;
 }
@@ -125,7 +123,7 @@ header .vertical {
 }
 
 .traffic {
-  padding: 15px;
+  padding: 10px 10px 10px 0;
   border-bottom: 1px solid rgb(186, 182, 182);
 }
 @media screen and (min-width: 768px) {
@@ -138,13 +136,13 @@ header .vertical {
 .message,
 .new-members,
 .activity {
-  padding: 0 15px;
+  padding: 10px 10px 10px 0;
   border-bottom: 1px solid rgb(186, 182, 182);
 }
 
 .daily,
 .mobile {
-  padding: 15px;
+  padding: 10px 10px 10px 0;
   border-bottom: 1px solid rgb(186, 182, 182);
 }
 @media screen and (min-width: 768px) {
@@ -570,5 +568,10 @@ nav * {
 @media screen and (min-width: 768px) {
   .student-icon {
     width: 10%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .student-icon {
+    width: 5%;
   }
 }
