@@ -33,10 +33,16 @@
     }
   }
   #notification {
-    display: none;
-    position: absolute;
-    width: 200px;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 20px;
+    background-color: variables.$secondary-color;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
   }
 }
 .social-card {

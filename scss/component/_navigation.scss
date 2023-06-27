@@ -33,8 +33,14 @@ header {
 
 nav {
   background-color: variables.$secondary-color;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 10px;
+  @include mixin.mq(tablet) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
   * {
     padding-left: 0.5rem;

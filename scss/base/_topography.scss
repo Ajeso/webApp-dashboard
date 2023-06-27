@@ -63,14 +63,10 @@ header {
   border-radius: 5px;
   color: variables.$white;
 }
-.pie-widget {
-  width: 60%;
-  text-align: center;
-}
 
 .members {
   font-weight: 100;
-  padding: 12px;
+  padding: 0 12px;
   img {
     border-radius: 50%;
   }
@@ -107,6 +103,9 @@ header {
         flex-grow: 1;
         text-align: center;
       }
+      img {
+        width: 20%;
+      }
     }
   }
 
@@ -125,16 +124,18 @@ header {
   }
 }
 .traffic {
+  padding: 15px;
+  border-bottom: 1px solid variables.$grey;
   @include mixin.mq(tablet) {
     border: none;
   }
 }
-.traffic,
+
 .social,
 .message,
 .new-members,
 .activity {
-  padding: 15px;
+  padding: 0 15px;
   border-bottom: 1px solid variables.$grey;
 }
 

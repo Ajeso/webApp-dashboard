@@ -65,14 +65,9 @@ header .vertical {
   color: #fff;
 }
 
-.pie-widget {
-  width: 60%;
-  text-align: center;
-}
-
 .members {
   font-weight: 100;
-  padding: 12px;
+  padding: 0 12px;
 }
 .members img {
   border-radius: 50%;
@@ -112,6 +107,10 @@ header .vertical {
     flex-grow: 1;
     text-align: center;
   }
+  .members .card img,
+  .members .activity-card img {
+    width: 20%;
+  }
 }
 .members .activity a {
   color: #000;
@@ -125,18 +124,21 @@ header .vertical {
   }
 }
 
+.traffic {
+  padding: 15px;
+  border-bottom: 1px solid rgb(186, 182, 182);
+}
 @media screen and (min-width: 768px) {
   .traffic {
     border: none;
   }
 }
 
-.traffic,
 .social,
 .message,
 .new-members,
 .activity {
-  padding: 15px;
+  padding: 0 15px;
   border-bottom: 1px solid rgb(186, 182, 182);
 }
 
@@ -395,11 +397,14 @@ a {
   margin: 1rem 0;
 }
 .form-section .message {
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 12px;
+  justify-content: space-between;
+}
+.form-section .message * {
+  margin: 1rem 0;
 }
 @media screen and (min-width: 1024px) {
   .form-section .message {
@@ -408,8 +413,6 @@ a {
   }
 }
 .form-section .settings {
-  font-size: 14px;
-  font-size: 1.4rem;
   border: none;
   padding: 12px;
   display: flex;
@@ -421,6 +424,18 @@ a {
 .form-section .settings div {
   display: flex;
   gap: 18px;
+  text-align: center;
+}
+.form-section .settings .text {
+  width: 50%;
+  font-size: 8px;
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 768px) {
+  .form-section .settings .text {
+    font-size: 12px;
+    font-size: 1.2rem;
+  }
 }
 .form-section .settings select {
   width: 100%;
@@ -473,7 +488,16 @@ header h2 {
 
 nav {
   background-color: rgb(78, 64, 119);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 10px;
+}
+@media screen and (min-width: 768px) {
+  nav {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
 nav * {
   padding-left: 0.5rem;
@@ -517,10 +541,16 @@ nav * {
   }
 }
 .bell-icon #notification {
-  display: none;
-  position: absolute;
-  width: 200px;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 20px;
+  background-color: rgb(78, 64, 119);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: none;
 }
 
 .social-card svg {

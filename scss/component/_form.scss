@@ -12,11 +12,15 @@
   }
 
   .message {
-    margin-top: 2rem;
+    * {
+      margin: 1rem 0;
+    }
+
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 12px;
+    justify-content: space-between;
     @include mixin.mq(laptop) {
       border-right: 1px solid variables.$grey;
       margin: 0;
@@ -24,10 +28,10 @@
   }
 
   .settings {
-    @include mixin.font-size(1.4);
     border: none;
     padding: 12px;
     display: flex;
+
     flex-direction: column;
 
     * {
@@ -37,6 +41,14 @@
     div {
       display: flex;
       gap: 18px;
+      text-align: center;
+    }
+    .text {
+      width: 50%;
+      @include mixin.font-size(0.8);
+      @include mixin.mq(tablet) {
+        @include mixin.font-size(1.2);
+      }
     }
 
     select {
