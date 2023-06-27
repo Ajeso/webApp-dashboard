@@ -54,12 +54,10 @@ header {
 }
 .alert-box {
   background-color: variables.$blue;
-
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   padding: 4px;
-  // display: none;
   border-radius: 5px;
   color: variables.$white;
 }
